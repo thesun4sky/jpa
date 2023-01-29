@@ -1,0 +1,44 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.0.1'
+    id 'io.spring.dependency-management' version '1.1.0'
+}
+
+group 'me.whitebear'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // PostgreSQL 의존성 추가
+    implementation 'org.postgresql:postgresql:42.2.27'
+
+    // 4. SpringBoot 의존성 추가
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+
+    // JUNIT 테스트를 위한 기본 의존성
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+
+    // 5. JDBC Template 등.. Spring 의존성을 받기위한 의존성
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    // 6. MyBatis 실습을 위한 의존성
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.0'
+    testCompileClasspath 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:3.0.1'
+    runtimeOnly 'org.postgresql:postgresql'
+
+    // 7. 개발편의를 위한 Lombok 의존성 추가
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    // 8. RawJPA 적용을 위한 의존성
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+}
+
+test {
+    useJUnitPlatform()
+}

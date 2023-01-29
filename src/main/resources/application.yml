@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/messenger
+    username: teasun
+    password: pass
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
+        # show_sql: true
+logging:
+  level:
+    org.hibernate.sql: debug
+    org.hibernate.type: trace # 쿼리 변수 출력
