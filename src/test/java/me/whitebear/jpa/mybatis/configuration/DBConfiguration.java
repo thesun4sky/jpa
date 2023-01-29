@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-@Configuration
+//@Configuration
 @MapperScan(basePackages = "me.whitebear.jpastudy.mapper.*")
 @EnableTransactionManagement
 public class DBConfiguration {

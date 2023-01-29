@@ -3,14 +3,29 @@ package me.whitebear.jpa.user;
 
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Set;
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import me.whitebear.jpa.userChannel.UserChannel;
 
+// lombok
+@Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+
+// jpa
 @Entity
 @Table(name = "users")
 public class User {
@@ -29,22 +44,21 @@ public class User {
   @Column(length = 25)
   private String password;
 
-  @Embedded
-  @AttributeOverrides({
-      @AttributeOverride(name = "street", column = @Column(name = "home_street"))
-  })
-  private Address address;
-
-
   /**
    * 생성자 - 약속된 형태로만 생성가능하도록 합니다.
    */
+  @Builder
+  public User (String username, String password) {
+    this.username = username;
+    this.password = password;
+  }
 
 
   /**
    * 연관관계 - Foreign Key 값을 따로 컬럼으로 정의하지 않고 연관 관계로 정의합니다.
    */
-
+  @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+  Set<UserChannel> userChannels = new LinkedHashSet<>();
 
   /**
    * 연관관계 편의 메소드 - 반대쪽에는 연관관계 편의 메소드가 없도록 주의합니다.
