@@ -1,12 +1,14 @@
 package me.whitebear.jpa.userChannel;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.MapsId;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -22,15 +24,11 @@ import me.whitebear.jpa.user.User;
 @Entity
 public class UserChannel {
 
-  @Getter(AccessLevel.NONE)
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name = "id", nullable = false)
-  private Long id;
-
 /**
  * 컬럼 - 연관관계 컬럼을 제외한 컬럼을 정의합니다.
  */
+@EmbeddedId
+private UserChannelId userChannelId;
 
 
 /**
@@ -46,11 +44,11 @@ public UserChannel(User user, Channel channel) {
  * 연관관계 - Foreign Key 값을 따로 컬럼으로 정의하지 않고 연관 관계로 정의합니다.
  */
   @ManyToOne
-  @JoinColumn(name = "user_id")
+  @MapsId("user_id")
   User user;
 
   @ManyToOne
-  @JoinColumn(name = "channel_id")
+  @MapsId("channel_id")
   Channel channel;
 
 /**
