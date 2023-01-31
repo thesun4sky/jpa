@@ -1,11 +1,8 @@
 package me.whitebear.jpa.user;
 
 
-import jakarta.persistence.AttributeOverride;
-import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
-import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,12 +10,12 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Set;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import me.whitebear.jpa.mention.Mention;
 import me.whitebear.jpa.userChannel.UserChannel;
 
 // lombok
@@ -29,6 +26,7 @@ import me.whitebear.jpa.userChannel.UserChannel;
 @Entity
 @Table(name = "users")
 public class User {
+
   /**
    * 컬럼 - 연관관계 컬럼을 제외한 컬럼을 정의합니다.
    */
@@ -48,7 +46,7 @@ public class User {
    * 생성자 - 약속된 형태로만 생성가능하도록 합니다.
    */
   @Builder
-  public User (String username, String password) {
+  public User(String username, String password) {
     this.username = username;
     this.password = password;
   }
@@ -60,10 +58,12 @@ public class User {
   @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
   Set<UserChannel> userChannels = new LinkedHashSet<>();
 
+  @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+  Set<Mention> mentions = new LinkedHashSet<>();
+
   /**
    * 연관관계 편의 메소드 - 반대쪽에는 연관관계 편의 메소드가 없도록 주의합니다.
    */
-
 
   /**
    * 서비스 메소드 - 외부에서 엔티티를 수정할 메소드를 정의합니다. (단일 책임을 가지도록 주의합니다.)

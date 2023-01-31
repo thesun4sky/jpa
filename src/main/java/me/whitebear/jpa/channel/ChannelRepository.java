@@ -1,22 +1,9 @@
 package me.whitebear.jpa.channel;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 
-@Repository
-public class ChannelRepository {
+public interface ChannelRepository extends JpaRepository<Channel, Long>,
+    QuerydslPredicateExecutor<Channel> {
 
-  @PersistenceContext
-  EntityManager entityManager;
-
-
-  public Channel insertChannel(Channel channel) {
-    entityManager.persist(channel);
-    return channel;
-  }
-
-  public Channel selectChannel(Long id) {
-    return entityManager.find(Channel.class, id);
-  }
 }

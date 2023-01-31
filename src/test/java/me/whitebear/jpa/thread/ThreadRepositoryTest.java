@@ -1,7 +1,5 @@
 package me.whitebear.jpa.thread;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.util.Set;
 import me.whitebear.jpa.channel.Channel;
 import me.whitebear.jpa.channel.ChannelRepository;
@@ -32,13 +30,13 @@ class ThreadRepositoryTest {
     newThread2.setChannel(newChannel);
 
     // when
-    var savedChannel = channelRepository.insertChannel(newChannel);
-    var savedThread = threadRepository.insertThread(newThread);
-    var savedThread2 = threadRepository.insertThread(newThread2);
+    var savedChannel = channelRepository.save(newChannel);
+    var savedThread = threadRepository.save(newThread);
+    var savedThread2 = threadRepository.save(newThread2);
 
     // then
-    var foundChannel = channelRepository.selectChannel(savedChannel.getId());
-    assert foundChannel.getThreads().containsAll(Set.of(savedThread, savedThread2));
+    var foundChannel = channelRepository.findById(savedChannel.getId());
+    assert foundChannel.get().getThreads().containsAll(Set.of(savedThread, savedThread2));
   }
 
 
@@ -50,13 +48,13 @@ class ThreadRepositoryTest {
     var newThread2 = Thread.builder().message("new-message2").build();
     newThread.setChannel(newChannel);
     newThread2.setChannel(newChannel);
-    var savedChannel = channelRepository.insertChannel(newChannel);
-    var savedThread = threadRepository.insertThread(newThread);
-    var savedThread2 = threadRepository.insertThread(newThread2);
+    var savedChannel = channelRepository.save(newChannel);
+    var savedThread = threadRepository.save(newThread);
+    var savedThread2 = threadRepository.save(newThread2);
 
     // when
-    var foundChannel = channelRepository.selectChannel(savedChannel.getId());
-    foundChannel.getThreads().remove(savedThread);
+    var foundChannel = channelRepository.findById(savedChannel.getId());
+    foundChannel.get().getThreads().remove(savedThread);
 
     // then
     //     delete
