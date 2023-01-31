@@ -16,6 +16,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import me.whitebear.jpa.channel.Channel;
+import me.whitebear.jpa.common.Timestamp;
 import me.whitebear.jpa.mention.Mention;
 import me.whitebear.jpa.user.User;
 
@@ -25,7 +26,7 @@ import me.whitebear.jpa.user.User;
 
 // jpa
 @Entity
-public class Thread {
+public class Thread extends Timestamp {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)

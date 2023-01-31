@@ -9,6 +9,7 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import me.whitebear.jpa.common.Timestamp;
 import me.whitebear.jpa.thread.Thread;
 import me.whitebear.jpa.user.User;
 
@@ -18,7 +19,7 @@ import me.whitebear.jpa.user.User;
 
 // jpa
 @Entity
-public class Mention {
+public class Mention extends Timestamp {
 
   /**
    * 컬럼 - 연관관계 컬럼을 제외한 컬럼을 정의합니다.
