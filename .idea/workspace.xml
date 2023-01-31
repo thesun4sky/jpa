@@ -5,23 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da5feafa-6a15-428c-85d0-d7792658362a" name="Changes" comment="commit">
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/channel/ChannelRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/thread/ThreadRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/user/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/userChannel/UserChannel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/me/whitebear/jpa/channel/ChannelRepositoryTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/me/whitebear/jpa/thread/ThreadRepositoryTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/me/whitebear/jpa/userChannel/UserChannelRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jpa-buddy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/common/PageDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/channel/Channel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/channel/Channel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/thread/Thread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/thread/Thread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/user/Address.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/user/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/me/whitebear/jpa/mybatis/configuration/DBConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/me/whitebear/jpa/mybatis/configuration/DBConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/user/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/user/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/me/whitebear/jpa/userChannel/UserChannelRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/me/whitebear/jpa/userChannel/UserChannelRepositoryTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,17 +33,6 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="jpa" type="f1a62948:ProjectNode" />
               </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="jpa" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="jpa" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build" type="c8890929:TasksNode$1" />
-              </path>
             </expand>
             <select />
           </tree_state>
@@ -73,6 +49,9 @@
       </list>
     </option>
   </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -85,32 +64,35 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="OptimizeOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
   <component name="ProjectId" id="2KzXd9evknzPpKyr9KKVGKg2yOD" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/teasun.kim/study/jpa/src/test/java/me/whitebear/jpa/mybatis&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editing.templates&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "last_opened_file_path": "/Users/teasun.kim/study/jpa/src/test/java/me/whitebear/jpa/mybatis",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "editing.templates"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="jdbc.dao" />
@@ -136,7 +118,7 @@
       <recent name="me.whitebear.jpa.mybatis.vo" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.TestApplication">
+  <component name="RunManager" selected="Gradle.UserChannelRepositoryTest.pageDTOTest">
     <configuration name="TestApplication" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -183,7 +165,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="ThreadRepositoryTest.deleteThreadByOrphanRemovalTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="UserChannelRepositoryTest.pageDTOTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -196,7 +178,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;me.whitebear.jpa.thread.ThreadRepositoryTest.deleteThreadByOrphanRemovalTest&quot;" />
+            <option value="&quot;me.whitebear.jpa.userChannel.UserChannelRepositoryTest.pageDTOTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -206,7 +188,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="ThreadRepositoryTest.deleteThreadbyOrphanRemovalTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="UserChannelRepositoryTest.userCustomFieldSortingTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -219,7 +201,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;me.whitebear.jpa.thread.ThreadRepositoryTest.deleteThreadbyOrphanRemovalTest&quot;" />
+            <option value="&quot;me.whitebear.jpa.userChannel.UserChannelRepositoryTest.userCustomFieldSortingTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -229,7 +211,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="UserChannelRepositoryTest.userJoinChannelTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="UserChannelRepositoryTest.userJoinChannelWithCascadeTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -242,7 +224,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;me.whitebear.jpa.userChannel.UserChannelRepositoryTest.userJoinChannelTest&quot;" />
+            <option value="&quot;me.whitebear.jpa.userChannel.UserChannelRepositoryTest.userJoinChannelWithCascadeTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -261,11 +243,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.UserChannelRepositoryTest.pageDTOTest" />
+        <item itemvalue="Gradle.UserChannelRepositoryTest.userCustomFieldSortingTest" />
+        <item itemvalue="Gradle.UserChannelRepositoryTest.userJoinChannelWithCascadeTest" />
         <item itemvalue="Gradle.TestApplication" />
         <item itemvalue="Gradle.TestApplication.registrarTest" />
-        <item itemvalue="Gradle.UserChannelRepositoryTest.userJoinChannelTest" />
-        <item itemvalue="Gradle.ThreadRepositoryTest.deleteThreadByOrphanRemovalTest" />
-        <item itemvalue="Gradle.ThreadRepositoryTest.deleteThreadbyOrphanRemovalTest" />
       </list>
     </recent_temporary>
   </component>
@@ -317,7 +299,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/me/whitebear/jpa/thread/ThreadRepositoryTest.java</url>
-          <line>40</line>
+          <line>42</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -330,7 +312,26 @@
           <line>58</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/me/whitebear/jpa/userChannel/UserChannelRepositoryTest.java</url>
+          <line>93</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/me/whitebear/jpa/userChannel/UserChannelRepositoryTest.java</url>
+          <line>111</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="GradleRunConfiguration">
+        <watch expression="pageDTO.toPageable()" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

@@ -1,21 +1,18 @@
 package me.whitebear.jpa.user;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
-import org.springframework.stereotype.Repository;
+import java.util.List;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
-@Repository
-public class UserRepository {
+public interface UserRepository extends JpaRepository<User, Long> {
 
-  @PersistenceContext
-  EntityManager entityManager;
+  // 아래와 같이 AS user_password 로 Alias(AS) 를 걸어주면
+  @Query("SELECT u, u.password AS customField FROM User u WHERE u.username = ?1")
+  List<User> findByUsernameWithCustomField(String username, Sort sort);
 
-  public User insertUser(User user) {
-    entityManager.persist(user);
-    return user;
-  }
 
-  public User selectUser(Long id) {
-    return entityManager.find(User.class, id);
-  }
+  // 아래와 같이 AS user_password 로 Alias(AS) 를 걸어주면
+  @Query("SELECT u FROM User u WHERE u.username = ?1")
+  List<User> findByUsername(String username, Sort sort);
 }
