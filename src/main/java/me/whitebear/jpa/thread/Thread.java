@@ -32,7 +32,7 @@ import me.whitebear.jpa.user.User;
 public class Thread extends Timestamp {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @GeneratedValue(strategy = GenerationType.SEQUENCE)
   @Column(name = "id", nullable = false)
   private Long id;
 

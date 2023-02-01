@@ -8,7 +8,9 @@ import java.util.Objects;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Setter
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Embeddable
@@ -25,10 +27,15 @@ public class UserChannelId implements Serializable {
 
   @Override
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     UserChannelId userChannelId = (UserChannelId) o;
-    return Objects.equals(getUserId(), userChannelId.getUserId()) && Objects.equals(getChannelId(), userChannelId.getChannelId());
+    return Objects.equals(getUserId(), userChannelId.getUserId()) && Objects.equals(getChannelId(),
+        userChannelId.getChannelId());
   }
 
   @Override

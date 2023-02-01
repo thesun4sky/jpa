@@ -34,10 +34,14 @@ public class ThreadMention extends Timestamp {
   public ThreadMention(User user, Thread thread) {
     this.user = user;
     this.thread = thread;
+    this.threadMentionId = getThreadMentionId(user, thread);
+  }
+
+  private static ThreadMentionId getThreadMentionId(User user, Thread thread) {
     var id = new ThreadMentionId();
     id.setUserId(user.getId());
     id.setThreadId(thread.getId());
-    this.threadMentionId = id;
+    return id;
   }
 
   /**
