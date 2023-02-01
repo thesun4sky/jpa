@@ -1,4 +1,4 @@
-package me.whitebear.jpa.userChannel;
+package me.whitebear.jpa.mention;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
@@ -8,22 +8,20 @@ import java.util.Objects;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Setter
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Embeddable
-public class UserChannelId implements Serializable {
+public class CommentMentionId implements Serializable {
 
   @Serial
-  private static final long serialVersionUID = 932813899396663626L;
+  private static final long serialVersionUID = 932813812396136126L;
 
   @Column(name = "user_id")
   private Long userId;
 
-  @Column(name = "channel_id")
-  private Long channelId;
+  @Column(name = "comment_id")
+  private Long commentId;
 
   @Override
   public boolean equals(Object o) {
@@ -33,13 +31,13 @@ public class UserChannelId implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UserChannelId userChannelId = (UserChannelId) o;
-    return Objects.equals(getUserId(), userChannelId.getUserId()) && Objects.equals(getChannelId(),
-        userChannelId.getChannelId());
+    CommentMentionId mentionId = (CommentMentionId) o;
+    return Objects.equals(getUserId(), mentionId.getUserId()) && Objects.equals(getCommentId(),
+        mentionId.getCommentId());
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(getUserId(), getChannelId());
+    return Objects.hash(getUserId(), getCommentId());
   }
 }

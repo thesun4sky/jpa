@@ -9,8 +9,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.PrePersist;
-import jakarta.persistence.PreUpdate;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import lombok.AccessLevel;
@@ -35,7 +33,7 @@ public class Channel extends Timestamp {
    */
 
   @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @GeneratedValue(strategy = GenerationType.SEQUENCE)
   @Column(name = "id", nullable = false)
   private Long id;
 
@@ -83,18 +81,4 @@ public class Channel extends Timestamp {
   /**
    * 서비스 메소드 - 외부에서 엔티티를 수정할 메소드를 정의합니다. (단일 책임을 가지도록 주의합니다.)
    */
-
-  /**
-   * 라이프 사이클 메소드
-   */
-  @PrePersist
-  public void prePersist() {
-    super.updateModifiedAt();
-    super.updateCreatedAt();
-  }
-
-  @PreUpdate
-  public void PreUpdate() {
-    super.updateModifiedAt();
-  }
 }

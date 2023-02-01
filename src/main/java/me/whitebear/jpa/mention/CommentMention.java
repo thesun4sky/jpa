@@ -1,4 +1,5 @@
-package me.whitebear.jpa.userChannel;
+package me.whitebear.jpa.mention;
+
 
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
@@ -8,7 +9,7 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import me.whitebear.jpa.channel.Channel;
+import me.whitebear.jpa.comment.Comment;
 import me.whitebear.jpa.common.Timestamp;
 import me.whitebear.jpa.user.User;
 
@@ -18,30 +19,22 @@ import me.whitebear.jpa.user.User;
 
 // jpa
 @Entity
-public class UserChannel extends Timestamp {
+public class CommentMention extends Timestamp {
 
   /**
    * 컬럼 - 연관관계 컬럼을 제외한 컬럼을 정의합니다.
    */
   @EmbeddedId
-  private UserChannelId userChannelId = new UserChannelId();
+  private CommentMentionId mentionId;
 
 
   /**
    * 생성자 - 약속된 형태로만 생성가능하도록 합니다.
    */
   @Builder
-  public UserChannel(User user, Channel channel) {
+  public CommentMention(User user, Comment comment) {
     this.user = user;
-    this.channel = channel;
-    this.userChannelId = getUserChannelId(user, channel);
-  }
-
-  private UserChannelId getUserChannelId(User user, Channel channel) {
-    var id = new UserChannelId();
-    id.setUserId(user.getId());
-    id.setChannelId(channel.getId());
-    return id;
+    this.comment = comment;
   }
 
   /**
@@ -52,14 +45,15 @@ public class UserChannel extends Timestamp {
   User user;
 
   @ManyToOne
-  @MapsId("channel_id")
-  Channel channel;
+  @MapsId("comment_id")
+  Comment comment;
 
-/**
- * 연관관계 편의 메소드 - 반대쪽에는 연관관계 편의 메소드가 없도록 주의합니다.
- */
+  /**
+   * 연관관계 편의 메소드 - 반대쪽에는 연관관계 편의 메소드가 없도록 주의합니다.
+   */
 
-/**
- * 서비스 메소드 - 외부에서 엔티티를 수정할 메소드를 정의합니다. (단일 책임을 가지도록 주의합니다.)
- */
+  /**
+   * 서비스 메소드 - 외부에서 엔티티를 수정할 메소드를 정의합니다. (단일 책임을 가지도록 주의합니다.)
+   */
+
 }
