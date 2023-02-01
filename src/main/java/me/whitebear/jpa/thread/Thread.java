@@ -3,6 +3,7 @@ package me.whitebear.jpa.thread;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -16,8 +17,10 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import me.whitebear.jpa.channel.Channel;
+import me.whitebear.jpa.comment.Comment;
 import me.whitebear.jpa.common.Timestamp;
-import me.whitebear.jpa.mention.Mention;
+import me.whitebear.jpa.emotion.ThreadEmotion;
+import me.whitebear.jpa.mention.ThreadMention;
 import me.whitebear.jpa.user.User;
 
 // lombok
@@ -52,12 +55,21 @@ public class Thread extends Timestamp {
    * 연관관계 - Foreign Key 값을 따로 컬럼으로 정의하지 않고 연관 관계로 정의합니다.
    */
   @ManyToOne
+  @JoinColumn(name = "user_id")
+  private User user;
+
+  @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "channel_id")
   private Channel channel;
 
+  @OneToMany(mappedBy = "thread", cascade = CascadeType.ALL, orphanRemoval = true)
+  private Set<Comment> comments = new LinkedHashSet<>();
 
   @OneToMany(mappedBy = "thread", cascade = CascadeType.ALL, orphanRemoval = true)
-  Set<Mention> mentions = new LinkedHashSet<>();
+  private Set<ThreadMention> mentions = new LinkedHashSet<>();
+
+  @OneToMany(mappedBy = "thread", cascade = CascadeType.ALL, orphanRemoval = true)
+  private Set<ThreadEmotion> emotions = new LinkedHashSet<>();
 
   /**
    * 연관관계 편의 메소드 - 반대쪽에는 연관관계 편의 메소드가 없도록 주의합니다.
@@ -68,9 +80,19 @@ public class Thread extends Timestamp {
   }
 
   public void addMention(User user) {
-    var mention = Mention.builder().user(user).thread(this).build();
+    var mention = ThreadMention.builder().user(user).thread(this).build();
     this.mentions.add(mention);
-    user.getMentions().add(mention);
+    user.getThreadMentions().add(mention);
+  }
+
+  public void addComment(Comment comment) {
+    this.comments.add(comment);
+    comment.setThread(this);
+  }
+
+  public void addEmotion(User user, String body) {
+    var emotion = ThreadEmotion.builder().user(user).thread(this).body(body).build();
+    this.emotions.add(emotion);
   }
 
   /**

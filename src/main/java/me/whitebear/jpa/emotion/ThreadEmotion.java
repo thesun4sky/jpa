@@ -1,15 +1,12 @@
-package me.whitebear.jpa.mention;
+package me.whitebear.jpa.emotion;
 
-
-import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.MapsId;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import me.whitebear.jpa.common.Timestamp;
 import me.whitebear.jpa.thread.Thread;
 import me.whitebear.jpa.user.User;
 
@@ -19,37 +16,27 @@ import me.whitebear.jpa.user.User;
 
 // jpa
 @Entity
-public class Mention extends Timestamp {
-
+public class ThreadEmotion extends Emotion {
   /**
    * 컬럼 - 연관관계 컬럼을 제외한 컬럼을 정의합니다.
    */
-  @EmbeddedId
-  private MentionId mentionId;
-
-  /**
-   * 컬럼 - 연관관계 컬럼을 제외한 컬럼을 정의합니다.
-   */
-  @ManyToOne
-  @MapsId("user_id")
-  User user;
-
-  @ManyToOne
-  @MapsId("thread_id")
-  Thread thread;
 
   /**
    * 생성자 - 약속된 형태로만 생성가능하도록 합니다.
    */
   @Builder
-  public Mention(User user, Thread thread) {
+  public ThreadEmotion(User user, Thread thread, String body) {
     this.user = user;
     this.thread = thread;
+    this.body = body;
   }
 
   /**
    * 연관관계 - Foreign Key 값을 따로 컬럼으로 정의하지 않고 연관 관계로 정의합니다.
    */
+  @ManyToOne
+  @JoinColumn(name = "thread_id")
+  Thread thread;
 
   /**
    * 연관관계 편의 메소드 - 반대쪽에는 연관관계 편의 메소드가 없도록 주의합니다.
