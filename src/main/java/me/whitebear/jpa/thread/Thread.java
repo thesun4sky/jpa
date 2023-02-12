@@ -1,5 +1,8 @@
 package me.whitebear.jpa.thread;
 
+import java.util.LinkedHashSet;
+import java.util.Set;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -10,8 +13,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import java.util.LinkedHashSet;
-import java.util.Set;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -50,7 +51,6 @@ public class Thread extends Timestamp {
     this.message = message;
   }
 
-
   /**
    * 연관관계 - Foreign Key 값을 따로 컬럼으로 정의하지 않고 연관 관계로 정의합니다.
    */
@@ -74,6 +74,10 @@ public class Thread extends Timestamp {
   /**
    * 연관관계 편의 메소드 - 반대쪽에는 연관관계 편의 메소드가 없도록 주의합니다.
    */
+  public void setUser(User user) {
+    this.user = user;
+  }
+
   public void setChannel(Channel channel) {
     this.channel = channel;
     channel.addThread(this);
