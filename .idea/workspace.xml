@@ -6,7 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="da5feafa-6a15-428c-85d0-d7792658362a" name="Changes" comment="4일차 - 의존성 공통화">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/me/whitebear/jpa/channel/ChannelRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/me/whitebear/jpa/channel/ChannelRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/me/whitebear/jpa/jdbc/JDBCTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/me/whitebear/jpa/jdbc/JDBCTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/me/whitebear/jpa/jdbc/dao/AccountDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/me/whitebear/jpa/jdbc/dao/AccountDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,16 +75,30 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="day-3" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "thesun4sky"
+  }
+}]]></component>
   <component name="GithubProjectSettings">
     <option name="branchProtectionPatterns">
       <list>
         <option value="master" />
       </list>
+    </option>
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="114af636-8f8a-41cf-b95f-adad4992a0dd" />
+        <option name="url" value="https://github.com/thesun4sky/jpa.git" />
+      </UrlAndAccount>
     </option>
   </component>
   <component name="JpbToolWindowState">
@@ -105,6 +123,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Gradle.'me.whitebear.jpa'에 있는 테스트.executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -113,7 +132,12 @@
     "WebServerToolWindowFactoryState": "false",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "day-4",
     "last_opened_file_path": "/Users/teasun.kim/study/jpa/src/main/java/me/whitebear/jpa/user",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "editing.templates",
     "spring.configuration.checksum": "90c5cd44b6782253833f75b672da5312"
@@ -155,7 +179,7 @@
       <recent name="me.whitebear.jpa.mention" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.UserRepositoryTest.queryByExampleTest">
+  <component name="RunManager" selected="Gradle.'me.whitebear.jpa'에 있는 테스트">
     <configuration name="UserChannelRepositoryTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -177,6 +201,7 @@
       <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
     <configuration name="UserChannelRepositoryTest.userCustomFieldSortingTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -200,29 +225,7 @@
       <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="UserChannelRepositoryTest.userJoinChannelTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;me.whitebear.jpa.userChannel.UserChannelRepositoryTest.userJoinChannelTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
     <configuration name="UserRepositoryTest.projectionTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -246,6 +249,7 @@
       <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
     <configuration name="UserRepositoryTest.queryByExampleTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -269,6 +273,31 @@
       <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="'me.whitebear.jpa'에 있는 테스트" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;me.whitebear.jpa.*&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
     <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
@@ -280,11 +309,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.'me.whitebear.jpa'에 있는 테스트" />
         <item itemvalue="Gradle.UserRepositoryTest.queryByExampleTest" />
         <item itemvalue="Gradle.UserRepositoryTest.projectionTest" />
-        <item itemvalue="Gradle.UserChannelRepositoryTest" />
         <item itemvalue="Gradle.UserChannelRepositoryTest.userCustomFieldSortingTest" />
-        <item itemvalue="Gradle.UserChannelRepositoryTest.userJoinChannelTest" />
+        <item itemvalue="Gradle.UserChannelRepositoryTest" />
       </list>
     </recent_temporary>
   </component>
@@ -298,6 +327,7 @@
       <updated>1674978469513</updated>
       <workItem from="1674978472008" duration="16135000" />
       <workItem from="1675272463570" duration="8884000" />
+      <workItem from="1716912595586" duration="1155000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1674990732667</created>
@@ -380,7 +410,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/me/whitebear/jpa/jdbc/JDBCTest.java</url>
-          <line>80</line>
+          <line>68</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
