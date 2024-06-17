@@ -5,11 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da5feafa-6a15-428c-85d0-d7792658362a" name="Changes" comment="4일차 - 의존성 공통화">
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/channel/ChannelRepositoryQuery.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/channel/ChannelRepositoryQueryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/me/whitebear/jpa/challenge/NPlusProblem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/me/whitebear/jpa/challenge/NotUpdateProblem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/me/whitebear/jpa/jdbc/JDBCTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/me/whitebear/jpa/jdbc/JDBCTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/me/whitebear/jpa/jdbc/dao/AccountDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/me/whitebear/jpa/jdbc/dao/AccountDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/channel/Channel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/channel/Channel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/channel/ChannelRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/channel/ChannelRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/configuration/JPAConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/configuration/JPAConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/thread/Thread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/thread/Thread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/thread/ThreadRepositoryQueryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/thread/ThreadRepositoryQueryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/thread/ThreadServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/thread/ThreadServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -80,12 +89,12 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "thesun4sky"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;thesun4sky&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubProjectSettings">
     <option name="branchProtectionPatterns">
       <list>
@@ -113,6 +122,9 @@
   <component name="OptimizeOnSaveOptions">
     <option name="myRunOnSave" value="true" />
   </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 8
+}]]></component>
   <component name="ProjectId" id="2KzXd9evknzPpKyr9KKVGKg2yOD" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="false" id="Update" />
@@ -124,6 +136,16 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Gradle.'me.whitebear.jpa'에 있는 테스트.executor": "Run",
+    "Gradle.NPlusProblem.executor": "Run",
+    "Gradle.NPlusProblem.teat_nplush_problem_issue.executor": "Run",
+    "Gradle.NPlusProblem.teat_nplush_problem_solve_2.executor": "Run",
+    "Gradle.NPlusProblem.test1.executor": "Run",
+    "Gradle.NPlusProblem.test2.executor": "Run",
+    "Gradle.NotUpdateProblem.executor": "Run",
+    "Gradle.NotUpdateProblem.setup.executor": "Run",
+    "Gradle.NotUpdateProblem.test_notUpdate.executor": "Run",
+    "Gradle.NotUpdateProblem.test_notUpdate_issue_solve.executor": "Run",
+    "Gradle.NotUpdateProblem.test_notUpdate_solve.executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -132,7 +154,8 @@
     "WebServerToolWindowFactoryState": "false",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "day-4",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/teasun.kim/study/jpa/src/main/java/me/whitebear/jpa/user",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -140,7 +163,8 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "editing.templates",
-    "spring.configuration.checksum": "90c5cd44b6782253833f75b672da5312"
+    "spring.configuration.checksum": "90c5cd44b6782253833f75b672da5312",
+    "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
     "DatabaseDriversLRU": [
@@ -172,15 +196,15 @@
       <recent name="me.whitebear.jpa.channel" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="me.whitebear.jpa.challenge" />
       <recent name="me.whitebear.jpa.user" />
       <recent name="me.whitebear.jpa.comment" />
       <recent name="me.whitebear.jpa.emotion" />
       <recent name="me.whitebear.jpa.configuration" />
-      <recent name="me.whitebear.jpa.mention" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.'me.whitebear.jpa'에 있는 테스트">
-    <configuration name="UserChannelRepositoryTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.NotUpdateProblem">
+    <configuration name="NotUpdateProblem" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -193,7 +217,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;me.whitebear.jpa.userChannel.UserChannelRepositoryTest&quot;" />
+            <option value="&quot;me.whitebear.jpa.challenge.NotUpdateProblem&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -204,7 +228,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="UserChannelRepositoryTest.userCustomFieldSortingTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="NotUpdateProblem.setup" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -217,7 +241,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;me.whitebear.jpa.userChannel.UserChannelRepositoryTest.userCustomFieldSortingTest&quot;" />
+            <option value="&quot;me.whitebear.jpa.challenge.NotUpdateProblem.setup&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -228,7 +252,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="UserRepositoryTest.projectionTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="NotUpdateProblem.test_notUpdate" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -241,7 +265,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;me.whitebear.jpa.user.UserRepositoryTest.projectionTest&quot;" />
+            <option value="&quot;me.whitebear.jpa.challenge.NotUpdateProblem.test_notUpdate&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -252,7 +276,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="UserRepositoryTest.queryByExampleTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="NotUpdateProblem.test_notUpdate_issue_solve" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -265,7 +289,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;me.whitebear.jpa.user.UserRepositoryTest.queryByExampleTest&quot;" />
+            <option value="&quot;me.whitebear.jpa.challenge.NotUpdateProblem.test_notUpdate_issue_solve&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -276,7 +300,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="'me.whitebear.jpa'에 있는 테스트" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="NotUpdateProblem.test_notUpdate_solve" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -289,7 +313,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;me.whitebear.jpa.*&quot;" />
+            <option value="&quot;me.whitebear.jpa.challenge.NotUpdateProblem.test_notUpdate_solve&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -309,13 +333,21 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.'me.whitebear.jpa'에 있는 테스트" />
-        <item itemvalue="Gradle.UserRepositoryTest.queryByExampleTest" />
-        <item itemvalue="Gradle.UserRepositoryTest.projectionTest" />
-        <item itemvalue="Gradle.UserChannelRepositoryTest.userCustomFieldSortingTest" />
-        <item itemvalue="Gradle.UserChannelRepositoryTest" />
+        <item itemvalue="Gradle.NotUpdateProblem" />
+        <item itemvalue="Gradle.NotUpdateProblem.test_notUpdate_issue_solve" />
+        <item itemvalue="Gradle.NotUpdateProblem.test_notUpdate" />
+        <item itemvalue="Gradle.NotUpdateProblem.test_notUpdate_solve" />
+        <item itemvalue="Gradle.NotUpdateProblem.setup" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -328,6 +360,7 @@
       <workItem from="1674978472008" duration="16135000" />
       <workItem from="1675272463570" duration="8884000" />
       <workItem from="1716912595586" duration="1155000" />
+      <workItem from="1718635015779" duration="6456000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1674990732667</created>
@@ -449,9 +482,14 @@
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/me/whitebear/jpa/userChannel/UserChannel.java</url>
-          <line>36</line>
-          <option name="timeStamp" value="45" />
+          <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.data/spring-data-jpa/3.0.0/c1289ab131eddd70fc35beb880927f4808d5d5f1/spring-data-jpa-3.0.0.jar!/org/springframework/data/jpa/repository/support/SimpleJpaRepository.class</url>
+          <line>434</line>
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.hibernate.orm/hibernate-core/6.1.6.Final/e2ff7dfc50d16377da7bedbf48a0a2e9db30ac66/hibernate-core-6.1.6.Final.jar!/org/hibernate/event/spi/MergeEvent.class</url>
+          <line>69</line>
+          <option name="timeStamp" value="50" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/me/whitebear/jpa/user/UserRepository.java</url>
@@ -472,11 +510,7 @@
     </pin-to-top-manager>
     <watches-manager>
       <configuration name="GradleRunConfiguration">
-        <watch expression="pageDTO.toPageable()" />
-        <watch expression="threadService.getMentionedThreadList(newUser)" />
-        <watch expression="mentionedThreadList.getSize()" />
-        <watch expression="((PageImpl)mentionedThreadList).content" custom="org.springframework.data.domain.PageImpl" />
-        <watch expression="((java.util.ArrayList)((PageImpl)mentionedThreadList).content).get(0)" custom="org.springframework.data.domain.PageImpl,java.util.ArrayList" />
+        <watch expression="this.result.equals(this.original)" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>
