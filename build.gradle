@@ -43,11 +43,14 @@ dependencies {
     annotationProcessor "com.querydsl:querydsl-apt:${dependencyManagement.importedProperties['querydsl.version']}:jakarta"
     annotationProcessor "jakarta.annotation:jakarta.annotation-api"
     annotationProcessor "jakarta.persistence:jakarta.persistence-api"
-    
+
     // H2는 자바 기반의 인메모리 데이터베이스로,
     // 로컬 개발 및 테스트 환경에서 DB 서버를 별도로 구축하지 않고 사용할 수 있게 해 줍니다.
     // 빠르고 경량이며 설정이 간단하다는 장점이 있습니다.
     runtimeOnly 'com.h2database:h2'
+
+    // 10. FixtureMonkey 적용을 위한 의존성
+    testImplementation 'com.navercorp.fixturemonkey:fixture-monkey-starter:1.0.19'
 }
 
 test {
