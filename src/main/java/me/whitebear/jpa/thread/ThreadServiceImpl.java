@@ -15,6 +15,13 @@ public class ThreadServiceImpl implements ThreadService {
   private final ThreadRepository threadRepository;
 
   @Override
+  public ThreadDTO selectThread(Long threadId) {
+    return threadRepository.findById(threadId)
+        .map(ThreadDTO::new)
+        .orElseThrow(() -> new IllegalArgumentException("쓰레드를 찾을 수 없습니다."));
+  }
+
+  @Override
   public List<Thread> selectNotEmptyThreadList(Channel channel) {
     var thread = QThread.thread;
 
