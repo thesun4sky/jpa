@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da5feafa-6a15-428c-85d0-d7792658362a" name="Changes" comment="4일차 - 의존성 공통화">
+    <list default="true" id="da5feafa-6a15-428c-85d0-d7792658362a" name="Changes" comment="fix(test) : 주석 개선">
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/emotion/CommentEmotionRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/emotion/EmotionResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/emotion/EmotionService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/emotion/ThreadEmotionRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/me/whitebear/jpa/emotion/EmotionServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/channel/Channel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/channel/Channel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/comment/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/comment/Comment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/thread/Thread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/thread/Thread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/me/whitebear/jpa/thread/ThreadServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/me/whitebear/jpa/thread/ThreadServiceImplTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,9 +63,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Kotlin Class" />
-        <option value="JUnit5 Test Class" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -164,6 +165,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="me.whitebear.jpa.emotion" />
       <recent name="me.whitebear.jpa.thread" />
       <recent name="me.whitebear.jpa" />
       <recent name="jdbc.dao" />
@@ -181,16 +183,17 @@
       <recent name="me.whitebear.jpa.common" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="me.whitebear.jpa.emotion" />
       <recent name="me.whitebear.jpa.thread" />
       <recent name="me.whitebear.jpa.userChannel" />
       <recent name="me.whitebear.jpa.channel" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="me.whitebear.jpa.emotion" />
+      <recent name="me.whitebear.jpa.common" />
       <recent name="me.whitebear.jpa.challenge" />
       <recent name="me.whitebear.jpa.user" />
       <recent name="me.whitebear.jpa.comment" />
-      <recent name="me.whitebear.jpa.emotion" />
-      <recent name="me.whitebear.jpa.configuration" />
     </key>
   </component>
   <component name="RunManager" selected="Gradle.NotUpdateProblem">
@@ -401,7 +404,15 @@
       <option name="project" value="LOCAL" />
       <updated>1675367978834</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="fix(test) : 주석 개선">
+      <option name="closed" value="true" />
+      <created>1720024997403</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1720024997403</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -426,7 +437,8 @@
     <MESSAGE value="3일차 - QueryDSL 로 개발하기" />
     <MESSAGE value="3일차 - Projection, QueryByExample" />
     <MESSAGE value="4일차 - 의존성 공통화" />
-    <option name="LAST_COMMIT_MESSAGE" value="4일차 - 의존성 공통화" />
+    <MESSAGE value="fix(test) : 주석 개선" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix(test) : 주석 개선" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -435,11 +447,6 @@
           <url>file://$PROJECT_DIR$/src/test/java/me/whitebear/jpa/jdbc/JDBCTest.java</url>
           <line>68</line>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/me/whitebear/jpa/thread/ThreadRepositoryTest.java</url>
-          <line>40</line>
-          <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/me/whitebear/jpa/userChannel/UserChannelRepositoryTest.java</url>
@@ -460,11 +467,6 @@
           <url>file://$PROJECT_DIR$/src/test/java/me/whitebear/jpa/userChannel/UserChannelRepositoryTest.java</url>
           <line>116</line>
           <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/me/whitebear/jpa/thread/ThreadServiceImplTest.java</url>
-          <line>51</line>
-          <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/me/whitebear/jpa/userChannel/UserChannelRepositoryTest.java</url>
