@@ -14,4 +14,12 @@ public interface ThreadEmotionRepositoryQuery {
    * @return 쓰레드 감정 목록
    */
   Page<Thread> findLikedThreads(User user, Pageable pageable);
+
+  /**
+   * 사용자가 작성한 쓰레드 수를 조회합니다.
+   *
+   * @param user 사용자
+   * @return 쓰레드 수
+   */
+  Long getCountLikedThreads(User user);
 }

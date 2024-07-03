@@ -17,6 +17,16 @@ public class EmotionServiceImpl implements EmotionService {
   private final CommentEmotionRepository commentEmotionRepository;
 
   @Override
+  public Long getCountLikedThreads(User user) {
+    return threadEmotionRepository.getCountLikedThreads(user);
+  }
+
+  @Override
+  public Long getCountLikedComments(User user) {
+    return commentEmotionRepository.getCountLikedComments(user);
+  }
+
+  @Override
   public Page<Thread> getLikedThreads(User user, int page, int size) {
     return threadEmotionRepository.findLikedThreads(user, PageRequest.of(page, size));
   }

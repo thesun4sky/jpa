@@ -24,6 +24,7 @@ public class ThreadEmotionRepositoryQueryImpl implements ThreadEmotionRepository
   public Page<Thread> findLikedThreads(User user, Pageable pageable) {
     // 사용자가 작성한 쓰레드 감정을 조회합니다.
     var query = query(threadEmotion.thread, user)
+        .orderBy(threadEmotion.createdAt.desc())
         .offset(pageable.getOffset())
         .limit(pageable.getPageSize());
 
@@ -35,14 +36,18 @@ public class ThreadEmotionRepositoryQueryImpl implements ThreadEmotionRepository
     return PageableExecutionUtils.getPage(threads, pageable, () -> totalSize);
   }
 
+  @Override
+  public Long getCountLikedThreads(User user) {
+    return query(Wildcard.count, user).fetchOne();
+  }
+
   private <T> JPAQuery<T> query(Expression<T> expr, User user) {
     return jpaQueryFactory.select(expr)
         .from(threadEmotion)
         .leftJoin(threadEmotion.thread).fetchJoin()
         .where(
             userEq(user)
-        )
-        .orderBy(threadEmotion.createdAt.desc());
+        );
   }
 
   private BooleanExpression userEq(User user) {

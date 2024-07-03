@@ -7,6 +7,10 @@ import org.springframework.data.domain.Page;
 
 public interface EmotionService {
 
+  Long getCountLikedThreads(User user);
+
+  Long getCountLikedComments(User user);
+
   Page<Thread> getLikedThreads(User user, int page, int size);
 
   Page<Comment> getLikedComments(User user, int page, int size);

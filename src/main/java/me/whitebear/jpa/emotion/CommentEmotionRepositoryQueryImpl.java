@@ -24,6 +24,7 @@ public class CommentEmotionRepositoryQueryImpl implements CommentEmotionReposito
   public Page<Comment> findLikedComments(User user, Pageable pageable) {
     // 사용자가 작성한 댓글 감정을 조회합니다.
     var query = query(commentEmotion.comment, user)
+        .orderBy(commentEmotion.createdAt.desc())
         .offset(pageable.getOffset())
         .limit(pageable.getPageSize());
 
@@ -35,14 +36,18 @@ public class CommentEmotionRepositoryQueryImpl implements CommentEmotionReposito
     return PageableExecutionUtils.getPage(threads, pageable, () -> totalSize);
   }
 
+  @Override
+  public Long getCountLikedComments(User user) {
+    return query(Wildcard.count, user).fetchOne();
+  }
+
   private <T> JPAQuery<T> query(Expression<T> expr, User user) {
     return jpaQueryFactory.select(expr)
         .from(commentEmotion)
         .leftJoin(commentEmotion.comment).fetchJoin()
         .where(
             userEq(user)
-        )
-        .orderBy(commentEmotion.createdAt.desc());
+        );
   }
 
   private BooleanExpression userEq(User user) {

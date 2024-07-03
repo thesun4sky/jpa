@@ -14,4 +14,12 @@ public interface CommentEmotionRepositoryQuery {
    * @return 댓글 목록
    */
   Page<Comment> findLikedComments(User user, Pageable pageable);
+
+  /**
+   * 사용자가 좋아요한 댓글 수를 조회합니다.
+   *
+   * @param user 사용자
+   * @return 댓글 수
+   */
+  Long getCountLikedComments(User user);
 }

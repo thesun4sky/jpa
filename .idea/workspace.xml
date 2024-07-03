@@ -4,17 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da5feafa-6a15-428c-85d0-d7792658362a" name="Changes" comment="feat(emotion) : 쓰레드 및 댓글 단건 조회시 좋아요 개수 필드 추가">
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/emotion/CommentEmotionRepositoryQuery.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/emotion/CommentEmotionRepositoryQueryImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/emotion/ThreadEmotionRepositoryQuery.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/emotion/ThreadEmotionRepositoryQueryImpl.java" afterDir="false" />
+    <list default="true" id="da5feafa-6a15-428c-85d0-d7792658362a" name="Changes" comment="feat(emotion) : 내가 좋아하는 쓰레드, 댓글 목록 조회기능 추가">
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/user/UserDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/user/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/user/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/emotion/CommentEmotionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/emotion/CommentEmotionRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/emotion/Emotion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/emotion/Emotion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/emotion/CommentEmotionRepositoryQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/emotion/CommentEmotionRepositoryQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/emotion/CommentEmotionRepositoryQueryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/emotion/CommentEmotionRepositoryQueryImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/emotion/EmotionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/emotion/EmotionService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/emotion/EmotionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/emotion/EmotionServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/emotion/ThreadEmotionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/emotion/ThreadThreadEmotionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/emotion/ThreadEmotionRepositoryQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/emotion/ThreadEmotionRepositoryQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/emotion/ThreadEmotionRepositoryQueryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/emotion/ThreadEmotionRepositoryQueryImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,11 +170,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="me.whitebear.jpa.user" />
       <recent name="me.whitebear.jpa.comment" />
       <recent name="me.whitebear.jpa.thread" />
       <recent name="me.whitebear.jpa.emotion" />
       <recent name="me.whitebear.jpa" />
-      <recent name="jdbc.dao" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/emotion" />
@@ -433,7 +433,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720029373195</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="feat(emotion) : 내가 좋아하는 쓰레드, 댓글 목록 조회기능 추가">
+      <option name="closed" value="true" />
+      <created>1720031567062</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1720031567062</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -461,7 +469,8 @@
     <MESSAGE value="fix(test) : 주석 개선" />
     <MESSAGE value="feat(emotion) : 쓰레드 및 댓글에 감정 추가/삭제 기능 추가" />
     <MESSAGE value="feat(emotion) : 쓰레드 및 댓글 단건 조회시 좋아요 개수 필드 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(emotion) : 쓰레드 및 댓글 단건 조회시 좋아요 개수 필드 추가" />
+    <MESSAGE value="feat(emotion) : 내가 좋아하는 쓰레드, 댓글 목록 조회기능 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(emotion) : 내가 좋아하는 쓰레드, 댓글 목록 조회기능 추가" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
