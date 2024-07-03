@@ -35,7 +35,9 @@ class ThreadServiceImplTest {
   @Autowired
   CommentRepository commentRepository;
 
+  // 멘션된 쓰레드 목록 조회
   @Test
+  @DisplayName("전체 채널에서 내가 멘션된 쓰레드 상세정보 목록 테스트 by JPA 연관관계")
   void getMentionedThreadList() {
     // given
     User savedUser = getTestUser("1", "2");
@@ -56,6 +58,7 @@ class ThreadServiceImplTest {
     assert mentionedThreads.containsAll(List.of(newThread, newThread2));
   }
 
+  // 채널에 쓰레드가 없을 때
   @Test
   void getNotEmptyThreadList() {
     // given
@@ -77,7 +80,7 @@ class ThreadServiceImplTest {
 
   @Test
   @Transactional(propagation = Propagation.NEVER)
-  @DisplayName("전체 채널에서 내가 멘션된 쓰레드 상세정보 목록 테스트")
+  @DisplayName("전체 채널에서 내가 멘션된 쓰레드 상세정보 목록 테스트 by Querydsl")
   void selectMentionedThreadListTest() {
     // given
     var user = getTestUser("1", "1");
@@ -101,24 +104,28 @@ class ThreadServiceImplTest {
     assert mentionedThreadList.getTotalElements() == 2;
   }
 
+  // 유저 생성
   private User getTestUser(String username, String password) {
     var newUser = User.builder().username(username).password(password).build();
     return userRepository.save(newUser);
   }
 
+  // 댓글 생성
   private Comment getTestComment(User user, String message) {
     var newComment = Comment.builder().message(message).build();
     newComment.setUser(user);
     return commentRepository.save(newComment);
   }
 
+  // 쓰레드 생성
   private Thread getTestThread(String message, Channel savedChannel, User user) {
     var newThread = Thread.builder().message(message).build();
-    newThread.setUser(user);
+    newThread.updateUser(user);
     newThread.setChannel(savedChannel);
     return newThread;
   }
 
+  // 멘션을 추가한 쓰레드 생성
   private Thread getTestThread(String message, Channel channel, User author, User mentionedUser) {
     var newThread = getTestThread(message, channel, author);
     threadService.insert(newThread);
@@ -126,6 +133,7 @@ class ThreadServiceImplTest {
     return threadService.insert(newThread);
   }
 
+  // 이모지를 추가한 쓰레드 생성
   private Thread getTestThread(String message, Channel channel, User author, User mentionedUser,
       User emotionUser, String emotionValue) {
     var newThread = getTestThread(message, channel, author, mentionedUser);
@@ -133,6 +141,7 @@ class ThreadServiceImplTest {
     return newThread;
   }
 
+  // 댓글을 추가한 쓰레드 생성
   private Thread getTestThread(String message, Channel channel, User author, User mentionedUser,
       User emotionUser, String emotionValue, User commentUser, String commentMessage) {
     var newThread = getTestThread(message, channel, author, mentionedUser, emotionUser,
@@ -141,6 +150,7 @@ class ThreadServiceImplTest {
     return newThread;
   }
 
+  // 댓글에 이모지를 추가한 쓰레드 생성
   private Thread getTestThread(String message, Channel channel, User author, User mentionedUser,
       User emotionUser, String emotionValue, User commentUser, String commentMessage,
       User commentEmotionUser, String commentEmotionValue) {

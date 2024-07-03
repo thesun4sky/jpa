@@ -2,6 +2,22 @@ package me.whitebear.jpa.thread;
 
 import jakarta.persistence.*;
 import lombok.*;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import java.util.LinkedHashSet;
+import java.util.Set;
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import me.whitebear.jpa.channel.Channel;
 import me.whitebear.jpa.comment.Comment;
 import me.whitebear.jpa.common.Timestamp;
@@ -61,16 +77,18 @@ public class Thread extends Timestamp {
     @OneToMany(mappedBy = "thread", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<ThreadEmotion> emotions = new LinkedHashSet<>();
 
+  /**
+   * 연관관계 편의 메소드 - 반대쪽에는 연관관계 편의 메소드가 없도록 주의합니다.
+   */
+  public void setChannel(Channel channel) {
+    this.channel = channel;
+    channel.addThread(this);
+  }
     /**
      * 연관관계 편의 메소드 - 반대쪽에는 연관관계 편의 메소드가 없도록 주의합니다.
      */
     public void setUser(User user) {
         this.user = user;
-    }
-
-    public void setChannel(Channel channel) {
-        this.channel = channel;
-        channel.addThread(this);
     }
 
     public void addMention(User user) {
@@ -84,10 +102,17 @@ public class Thread extends Timestamp {
         comment.setThread(this);
     }
 
-    public void addEmotion(User user, String body) {
-        var emotion = ThreadEmotion.builder().user(user).thread(this).body(body).build();
-        this.emotions.add(emotion);
-    }
+  /**
+   * 서비스 메소드 - 외부에서 엔티티를 수정할 메소드를 정의합니다. (단일 책임을 가지도록 주의합니다.)
+   */
+  public void updateUser(User user) {
+    this.user = user;
+  }
+
+  public void addEmotion(User user, String body) {
+    var emotion = ThreadEmotion.builder().user(user).thread(this).body(body).build();
+    this.emotions.add(emotion);
+  }
 
     /**
      * 서비스 메소드 - 외부에서 엔티티를 수정할 메소드를 정의합니다. (단일 책임을 가지도록 주의합니다.)
