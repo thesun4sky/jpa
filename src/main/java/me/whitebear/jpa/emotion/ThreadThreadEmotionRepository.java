@@ -5,8 +5,8 @@ import me.whitebear.jpa.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 
-public interface ThreadEmotionRepository extends JpaRepository<ThreadEmotion, Long>,
-    QuerydslPredicateExecutor<ThreadEmotion> {
+public interface ThreadThreadEmotionRepository extends JpaRepository<ThreadEmotion, Long>,
+    QuerydslPredicateExecutor<ThreadEmotion>, ThreadEmotionRepositoryQuery {
 
   boolean existsByUserAndThread(User user, Thread thread);
 }

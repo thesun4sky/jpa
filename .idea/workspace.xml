@@ -4,17 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da5feafa-6a15-428c-85d0-d7792658362a" name="Changes" comment="feat(emotion) : 쓰레드 및 댓글에 감정 추가/삭제 기능 추가">
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/comment/CommentDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/comment/CommentService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/comment/CommentServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/emotion/EmotionServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/thread/ThreadDTO.java" afterDir="false" />
+    <list default="true" id="da5feafa-6a15-428c-85d0-d7792658362a" name="Changes" comment="feat(emotion) : 쓰레드 및 댓글 단건 조회시 좋아요 개수 필드 추가">
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/emotion/CommentEmotionRepositoryQuery.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/emotion/CommentEmotionRepositoryQueryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/emotion/ThreadEmotionRepositoryQuery.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/emotion/ThreadEmotionRepositoryQueryImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/comment/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/comment/Comment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/emotion/CommentEmotionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/emotion/CommentEmotionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/emotion/Emotion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/emotion/Emotion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/emotion/EmotionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/emotion/EmotionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/thread/ThreadService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/thread/ThreadService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/thread/ThreadServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/thread/ThreadServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/emotion/EmotionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/emotion/EmotionServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/emotion/ThreadEmotionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/emotion/ThreadThreadEmotionRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,8 +67,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Kotlin Class" />
-        <option value="Interface" />
         <option value="JUnit5 Test Class" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -141,6 +141,7 @@
     "Gradle.NotUpdateProblem.test_notUpdate.executor": "Run",
     "Gradle.NotUpdateProblem.test_notUpdate_issue_solve.executor": "Run",
     "Gradle.NotUpdateProblem.test_notUpdate_solve.executor": "Run",
+    "Gradle.jpa [build].executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -151,7 +152,7 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/teasun.kim/study/jpa/src/main/java/me/whitebear/jpa/comment",
+    "last_opened_file_path": "/Users/teasun.kim/study/jpa/src/main/java/me/whitebear/jpa/emotion",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -176,11 +177,11 @@
       <recent name="jdbc.dao" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/emotion" />
       <recent name="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/comment" />
       <recent name="$PROJECT_DIR$/src/main/java/me/whitebear/jpa/user" />
       <recent name="$PROJECT_DIR$/src/test/java/me/whitebear/jpa/mybatis" />
       <recent name="$PROJECT_DIR$/src/test/resources/mappings" />
-      <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -202,7 +203,7 @@
       <recent name="me.whitebear.jpa.comment" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.NotUpdateProblem">
+  <component name="RunManager" selected="Gradle.jpa [build]">
     <configuration name="NotUpdateProblem" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -217,30 +218,6 @@
             <option value=":test" />
             <option value="--tests" />
             <option value="&quot;me.whitebear.jpa.challenge.NotUpdateProblem&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="NotUpdateProblem.setup" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;me.whitebear.jpa.challenge.NotUpdateProblem.setup&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -323,6 +300,28 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="jpa [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
     <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="jpa.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="me.whitebear.jpa.Application" />
@@ -332,11 +331,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.jpa [build]" />
         <item itemvalue="Gradle.NotUpdateProblem" />
         <item itemvalue="Gradle.NotUpdateProblem.test_notUpdate_issue_solve" />
         <item itemvalue="Gradle.NotUpdateProblem.test_notUpdate" />
         <item itemvalue="Gradle.NotUpdateProblem.test_notUpdate_solve" />
-        <item itemvalue="Gradle.NotUpdateProblem.setup" />
       </list>
     </recent_temporary>
   </component>
@@ -426,7 +425,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720028480881</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="feat(emotion) : 쓰레드 및 댓글 단건 조회시 좋아요 개수 필드 추가">
+      <option name="closed" value="true" />
+      <created>1720029373195</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1720029373195</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -453,7 +460,8 @@
     <MESSAGE value="4일차 - 의존성 공통화" />
     <MESSAGE value="fix(test) : 주석 개선" />
     <MESSAGE value="feat(emotion) : 쓰레드 및 댓글에 감정 추가/삭제 기능 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(emotion) : 쓰레드 및 댓글에 감정 추가/삭제 기능 추가" />
+    <MESSAGE value="feat(emotion) : 쓰레드 및 댓글 단건 조회시 좋아요 개수 필드 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(emotion) : 쓰레드 및 댓글 단건 조회시 좋아요 개수 필드 추가" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

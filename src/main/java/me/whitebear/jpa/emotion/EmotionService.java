@@ -3,8 +3,13 @@ package me.whitebear.jpa.emotion;
 import me.whitebear.jpa.comment.Comment;
 import me.whitebear.jpa.thread.Thread;
 import me.whitebear.jpa.user.User;
+import org.springframework.data.domain.Page;
 
 public interface EmotionService {
+
+  Page<Thread> getLikedThreads(User user, int page, int size);
+
+  Page<Comment> getLikedComments(User user, int page, int size);
 
   /**
    * 쓰레드에 감정 추가
@@ -14,7 +19,7 @@ public interface EmotionService {
    * @param body   내용
    * @return 추가된 감정
    */
-  Emotion add(User user, Thread thread, String body);
+  ThreadEmotion add(User user, Thread thread, String body);
 
   /**
    * 댓글에 감정 추가
@@ -24,7 +29,7 @@ public interface EmotionService {
    * @param body    내용
    * @return 추가된 감정
    */
-  Emotion add(User user, Comment comment, String body);
+  CommentEmotion add(User user, Comment comment, String body);
 
 
   /**
