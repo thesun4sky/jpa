@@ -2,7 +2,9 @@ package me.whitebear.jpa.emotion;
 
 import lombok.RequiredArgsConstructor;
 import me.whitebear.jpa.comment.Comment;
+import me.whitebear.jpa.comment.CommentDTO;
 import me.whitebear.jpa.thread.Thread;
+import me.whitebear.jpa.thread.ThreadDTO;
 import me.whitebear.jpa.user.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -27,13 +29,15 @@ public class EmotionServiceImpl implements EmotionService {
   }
 
   @Override
-  public Page<Thread> getLikedThreads(User user, int page, int size) {
-    return threadEmotionRepository.findLikedThreads(user, PageRequest.of(page, size));
+  public Page<ThreadDTO> getLikedThreads(User user, int page, int size) {
+    return threadEmotionRepository.findLikedThreads(user, PageRequest.of(page, size))
+        .map(ThreadDTO::new);
   }
 
   @Override
-  public Page<Comment> getLikedComments(User user, int page, int size) {
-    return commentEmotionRepository.findLikedComments(user, PageRequest.of(page, size));
+  public Page<CommentDTO> getLikedComments(User user, int page, int size) {
+    return commentEmotionRepository.findLikedComments(user, PageRequest.of(page, size))
+        .map(CommentDTO::new);
   }
 
   @Override

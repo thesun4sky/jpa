@@ -1,7 +1,9 @@
 package me.whitebear.jpa.emotion;
 
 import me.whitebear.jpa.comment.Comment;
+import me.whitebear.jpa.comment.CommentDTO;
 import me.whitebear.jpa.thread.Thread;
+import me.whitebear.jpa.thread.ThreadDTO;
 import me.whitebear.jpa.user.User;
 import org.springframework.data.domain.Page;
 
@@ -11,9 +13,9 @@ public interface EmotionService {
 
   Long getCountLikedComments(User user);
 
-  Page<Thread> getLikedThreads(User user, int page, int size);
+  Page<ThreadDTO> getLikedThreads(User user, int page, int size);
 
-  Page<Comment> getLikedComments(User user, int page, int size);
+  Page<CommentDTO> getLikedComments(User user, int page, int size);
 
   /**
    * 쓰레드에 감정 추가
