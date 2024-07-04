@@ -28,7 +28,7 @@ public class ThreadServiceImpl implements ThreadService {
   }
 
   @Override
-  public List<Thread> selectNotEmptyThreadList(Channel channel) {
+  public List<ThreadDTO> selectNotEmptyThreadList(Channel channel) {
     var thread = QThread.thread;
 
     // 메세지가 비어있지 않은 해당 채널의 쓰레드 목록
@@ -42,15 +42,15 @@ public class ThreadServiceImpl implements ThreadService {
 
   @Transactional(readOnly = true)
   @Override
-  public Page<Thread> selectMentionedThreadList(Long userId, PageDTO pageDTO) {
+  public Page<ThreadDTO> selectMentionedThreadList(Long userId, PageDTO pageDTO) {
     var cond = ThreadSearchCond.builder().mentionedUserId(userId).build();
-    return threadRepository.search(cond, pageDTO.toPageable("metions"));
+    return threadRepository.search(cond, pageDTO.toPageable("metions")).map(ThreadDTO::new);
   }
 
   @Override
-  public Page<Thread> selectFollowedUserThreads(User user, PageDTO pageDTO) {
+  public Page<ThreadDTO> selectFollowedUserThreads(User user, PageDTO pageDTO) {
     return threadRepository.findThreadsByFollowingUser(FollowingThreadSearchCond.builder()
         .followingUserId(user.getId())
-        .build(), pageDTO.toPageable());
+        .build(), pageDTO.toPageable()).map(ThreadDTO::new);
   }
 }

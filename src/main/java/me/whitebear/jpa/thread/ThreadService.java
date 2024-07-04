@@ -16,11 +16,11 @@ public interface ThreadService {
    */
   ThreadDTO selectThread(Long threadId);
 
-  List<Thread> selectNotEmptyThreadList(Channel channel);
+  List<ThreadDTO> selectNotEmptyThreadList(Channel channel);
 
-  Page<Thread> selectMentionedThreadList(Long userId, PageDTO pageDTO);
+  Page<ThreadDTO> selectMentionedThreadList(Long userId, PageDTO pageDTO);
 
-  Page<Thread> selectFollowedUserThreads(User user, PageDTO pageDTO);
+  Page<ThreadDTO> selectFollowedUserThreads(User user, PageDTO pageDTO);
 
   Thread insert(Thread thread);
 }
