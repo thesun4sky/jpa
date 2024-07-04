@@ -4,6 +4,7 @@ import static me.whitebear.jpa.follow.QFollow.follow;
 import static me.whitebear.jpa.thread.QThread.thread;
 
 import com.querydsl.core.types.Expression;
+import com.querydsl.core.types.OrderSpecifier;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.core.types.dsl.Wildcard;
 import com.querydsl.jpa.impl.JPAQuery;
@@ -24,7 +25,7 @@ public class ThreadRepositoryQueryImpl implements ThreadRepositoryQuery {
   public Page<Thread> findThreadsByFollowingUser(FollowingThreadSearchCond cond,
       Pageable pageable) {
     var query = query(thread, cond)
-        .orderBy(thread.createdAt.desc())
+        .orderBy(createOrderSpecifier(cond.getSortType()))
         .offset(pageable.getOffset())
         .limit(pageable.getPageSize());
 
@@ -48,10 +49,9 @@ public class ThreadRepositoryQueryImpl implements ThreadRepositoryQuery {
   @Override
   public Page<Thread> search(ThreadSearchCond cond, Pageable pageable) {
     var query = query(thread, cond)
+        .orderBy(createOrderSpecifier(cond.getSortType()))
         .offset(pageable.getOffset())
         .limit(pageable.getPageSize());
-
-    query.orderBy(thread.mentions.any().createdAt.desc());
 
     var threads = query.fetch();
     long totalSize = countQuery(cond).fetch().get(0);
@@ -94,5 +94,20 @@ public class ThreadRepositoryQueryImpl implements ThreadRepositoryQuery {
   private BooleanExpression mentionedUserIdEq(Long mentionedUserId) {
     return Objects.nonNull(mentionedUserId) ? thread.mentions.any().user.id.eq(mentionedUserId)
         : null;
+  }
+
+  private OrderSpecifier createOrderSpecifier(FollowingThreadSearchCond.SortType sortType) {
+    return switch (sortType) {
+      case CREATE_AT_DESC -> thread.createdAt.desc();
+      case USER_NAME_ASC -> thread.user.username.asc();
+    };
+  }
+
+  private OrderSpecifier createOrderSpecifier(ThreadSearchCond.SortType sortType) {
+    return switch (sortType) {
+      case CREATE_AT_DESC -> thread.createdAt.desc();
+      case USER_NAME_ASC -> thread.user.username.asc();
+      case MENTIONED_CREATE_AT_DESC -> thread.mentions.any().createdAt.desc();
+    };
   }
 }

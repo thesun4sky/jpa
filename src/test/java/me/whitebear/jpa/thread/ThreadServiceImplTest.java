@@ -1,6 +1,7 @@
 package me.whitebear.jpa.thread;
 
 import java.util.List;
+import java.util.Objects;
 import me.whitebear.jpa.channel.Channel;
 import me.whitebear.jpa.channel.Channel.Type;
 import me.whitebear.jpa.channel.ChannelRepository;
@@ -10,6 +11,7 @@ import me.whitebear.jpa.common.PageDTO;
 import me.whitebear.jpa.follow.Follow;
 import me.whitebear.jpa.follow.FollowRepository;
 import me.whitebear.jpa.mention.ThreadMention;
+import me.whitebear.jpa.thread.FollowingThreadSearchCond.SortType;
 import me.whitebear.jpa.user.User;
 import me.whitebear.jpa.user.UserRepository;
 import org.junit.jupiter.api.DisplayName;
@@ -134,6 +136,36 @@ class ThreadServiceImplTest {
 
     // then - 팔로우한 유저의 쓰레드 목록 사이즈 3
     assert followedUserThreads.getTotalElements() == 3;
+  }
+
+
+  @Test
+  @DisplayName("팔로우한 유저의 쓰레드 목록 조회 테스트 (작성자 이름으로 정렬)")
+  void selectFollowedUserThreadsOrderByUserNameTest() {
+    // given - 팔로우한 유저의 쓰레드 생성
+    var user = getTestUser("1", "1");
+    var user2 = getTestUser("2", "2");
+    var user3 = getTestUser("3", "3");
+    var user4 = getTestUser("3", "4");
+    followRepository.saveAll(
+        List.of(new Follow(user, user2), new Follow(user, user3), new Follow(user, user4)));
+    var newChannel = Channel.builder().name("c1").type(Type.PUBLIC).build();
+    var savedChannel = channelRepository.save(newChannel);
+    var threadOfUser2 = getTestThread("message2", savedChannel, user2);
+    var threadOfUser3 = getTestThread("message3", savedChannel, user3);
+    var threadOfUser4 = getTestThread("message4", savedChannel, user4);
+    threadService.insert(threadOfUser2);
+    threadService.insert(threadOfUser3);
+    threadService.insert(threadOfUser4);
+
+    // when - 팔로우한 유저의 쓰레드 목록 조회
+    var pageDTO = PageDTO.builder().currentPage(1).size(5).build();
+    var followedUserThreads = threadService.selectFollowedUserThreads(user, pageDTO,
+        SortType.USER_NAME_ASC);
+
+    // then - 팔로우한 유저의 쓰레드 목록 사이즈 3
+    assert Objects.equals(followedUserThreads.getContent().get(0).getMessage(),
+        threadOfUser2.getMessage());
   }
 
   // 유저 생성

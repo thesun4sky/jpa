@@ -4,6 +4,7 @@ import java.util.List;
 import lombok.RequiredArgsConstructor;
 import me.whitebear.jpa.channel.Channel;
 import me.whitebear.jpa.common.PageDTO;
+import me.whitebear.jpa.thread.ThreadSearchCond.SortType;
 import me.whitebear.jpa.user.User;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
@@ -16,8 +17,8 @@ public class ThreadServiceImpl implements ThreadService {
   private final ThreadRepository threadRepository;
 
   @Override
-  public ThreadDTO insert(Thread thread) {
-    return new ThreadDTO(threadRepository.save(thread));
+  public Thread insert(Thread thread) {
+    return threadRepository.save(thread);
   }
 
   @Override
@@ -43,14 +44,17 @@ public class ThreadServiceImpl implements ThreadService {
   @Transactional(readOnly = true)
   @Override
   public Page<ThreadDTO> selectMentionedThreadList(Long userId, PageDTO pageDTO) {
-    var cond = ThreadSearchCond.builder().mentionedUserId(userId).build();
+    var cond = ThreadSearchCond.builder().mentionedUserId(userId)
+        .sortType(SortType.MENTIONED_CREATE_AT_DESC).build();
     return threadRepository.search(cond, pageDTO.toPageable("metions")).map(ThreadDTO::new);
   }
 
   @Override
-  public Page<ThreadDTO> selectFollowedUserThreads(User user, PageDTO pageDTO) {
+  public Page<ThreadDTO> selectFollowedUserThreads(User user, PageDTO pageDTO,
+      FollowingThreadSearchCond.SortType sortType) {
     return threadRepository.findThreadsByFollowingUser(FollowingThreadSearchCond.builder()
         .followingUserId(user.getId())
+        .sortType(sortType)
         .build(), pageDTO.toPageable()).map(ThreadDTO::new);
   }
 }
