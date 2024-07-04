@@ -44,7 +44,7 @@ public class CommentEmotionRepositoryQueryImpl implements CommentEmotionReposito
   private <T> JPAQuery<T> query(Expression<T> expr, User user) {
     return jpaQueryFactory.select(expr)
         .from(commentEmotion)
-        .leftJoin(commentEmotion.comment).fetchJoin()
+        .join(commentEmotion.comment)
         .where(
             userEq(user)
         );

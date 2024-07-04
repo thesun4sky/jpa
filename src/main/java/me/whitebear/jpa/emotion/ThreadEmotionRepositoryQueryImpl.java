@@ -44,7 +44,7 @@ public class ThreadEmotionRepositoryQueryImpl implements ThreadEmotionRepository
   private <T> JPAQuery<T> query(Expression<T> expr, User user) {
     return jpaQueryFactory.select(expr)
         .from(threadEmotion)
-        .leftJoin(threadEmotion.thread).fetchJoin()
+        .join(threadEmotion.thread)
         .where(
             userEq(user)
         );

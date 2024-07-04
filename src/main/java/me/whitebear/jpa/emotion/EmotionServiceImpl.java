@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class EmotionServiceImpl implements EmotionService {
 
-  private final ThreadThreadEmotionRepository threadEmotionRepository;
+  private final ThreadEmotionRepository threadEmotionRepository;
 
   private final CommentEmotionRepository commentEmotionRepository;
 
