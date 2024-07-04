@@ -1,5 +1,6 @@
 package me.whitebear.jpa.thread;
 
+import static me.whitebear.jpa.follow.QFollow.follow;
 import static me.whitebear.jpa.thread.QThread.thread;
 
 import com.querydsl.core.types.Expression;
@@ -18,6 +19,31 @@ import org.springframework.data.support.PageableExecutionUtils;
 public class ThreadRepositoryQueryImpl implements ThreadRepositoryQuery {
 
   private final JPAQueryFactory jpaQueryFactory;
+
+  @Override
+  public Page<Thread> findThreadsByFollowingUser(FollowingThreadSearchCond cond,
+      Pageable pageable) {
+    var query = query(thread, cond)
+        .orderBy(thread.createdAt.desc())
+        .offset(pageable.getOffset())
+        .limit(pageable.getPageSize());
+
+    var threads = query.fetch();
+    long totalSize = query(Wildcard.count, cond).fetch().get(0);
+
+    return PageableExecutionUtils.getPage(threads, pageable, () -> totalSize);
+  }
+
+  private <T> JPAQuery<T> query(Expression<T> expr, FollowingThreadSearchCond cond) {
+    return jpaQueryFactory.select(expr)
+        .from(thread)
+        .where(thread.user.id.in(
+            jpaQueryFactory
+                .select(follow.followedUser.id)
+                .from(follow)
+                .where(follow.followingUser.id.eq(cond.getFollowingUserId()))
+        ));
+  }
 
   @Override
   public Page<Thread> search(ThreadSearchCond cond, Pageable pageable) {

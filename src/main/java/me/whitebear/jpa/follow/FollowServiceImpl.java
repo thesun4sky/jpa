@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 public class FollowServiceImpl implements FollowService {
 
   private final FollowRepository followRepository;
-  
+
   @Override
   public void follow(User followingUser, User followedUser) {
     if (followRepository.existsById(new FollowId(followingUser.getId(), followedUser.getId()))) {

@@ -4,6 +4,7 @@ import java.util.List;
 import lombok.RequiredArgsConstructor;
 import me.whitebear.jpa.channel.Channel;
 import me.whitebear.jpa.common.PageDTO;
+import me.whitebear.jpa.user.User;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,6 +14,11 @@ import org.springframework.transaction.annotation.Transactional;
 public class ThreadServiceImpl implements ThreadService {
 
   private final ThreadRepository threadRepository;
+
+  @Override
+  public Thread insert(Thread thread) {
+    return threadRepository.save(thread);
+  }
 
   @Override
   public ThreadDTO selectThread(Long threadId) {
@@ -42,7 +48,9 @@ public class ThreadServiceImpl implements ThreadService {
   }
 
   @Override
-  public Thread insert(Thread thread) {
-    return threadRepository.save(thread);
+  public Page<Thread> selectFollowedUserThreads(User user, PageDTO pageDTO) {
+    return threadRepository.findThreadsByFollowingUser(FollowingThreadSearchCond.builder()
+        .followingUserId(user.getId())
+        .build(), pageDTO.toPageable());
   }
 }

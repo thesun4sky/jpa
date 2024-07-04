@@ -7,6 +7,8 @@ import me.whitebear.jpa.channel.ChannelRepository;
 import me.whitebear.jpa.comment.Comment;
 import me.whitebear.jpa.comment.CommentRepository;
 import me.whitebear.jpa.common.PageDTO;
+import me.whitebear.jpa.follow.Follow;
+import me.whitebear.jpa.follow.FollowRepository;
 import me.whitebear.jpa.mention.ThreadMention;
 import me.whitebear.jpa.user.User;
 import me.whitebear.jpa.user.UserRepository;
@@ -34,6 +36,9 @@ class ThreadServiceImplTest {
 
   @Autowired
   CommentRepository commentRepository;
+
+  @Autowired
+  FollowRepository followRepository;
 
   // 멘션된 쓰레드 목록 조회
   @Test
@@ -102,6 +107,33 @@ class ThreadServiceImplTest {
 
     // then
     assert mentionedThreadList.getTotalElements() == 2;
+  }
+
+  @Test
+  @DisplayName("팔로우한 유저의 쓰레드 목록 조회 테스트")
+  void selectFollowedUserThreadsTest() {
+    // given - 팔로우한 유저의 쓰레드 생성
+    var user = getTestUser("1", "1");
+    var user2 = getTestUser("2", "2");
+    var user3 = getTestUser("3", "3");
+    var user4 = getTestUser("3", "4");
+    followRepository.saveAll(
+        List.of(new Follow(user, user2), new Follow(user, user3), new Follow(user, user4)));
+    var newChannel = Channel.builder().name("c1").type(Type.PUBLIC).build();
+    var savedChannel = channelRepository.save(newChannel);
+    var threadOfUser2 = getTestThread("message2", savedChannel, user2);
+    var threadOfUser3 = getTestThread("message3", savedChannel, user3);
+    var threadOfUser4 = getTestThread("message4", savedChannel, user4);
+    threadService.insert(threadOfUser2);
+    threadService.insert(threadOfUser3);
+    threadService.insert(threadOfUser4);
+
+    // when - 팔로우한 유저의 쓰레드 목록 조회
+    var pageDTO = PageDTO.builder().currentPage(1).size(5).build();
+    var followedUserThreads = threadService.selectFollowedUserThreads(user, pageDTO);
+
+    // then - 팔로우한 유저의 쓰레드 목록 사이즈 3
+    assert followedUserThreads.getTotalElements() == 3;
   }
 
   // 유저 생성
