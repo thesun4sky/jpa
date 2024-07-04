@@ -22,5 +22,5 @@ public interface ThreadService {
 
   Page<ThreadDTO> selectFollowedUserThreads(User user, PageDTO pageDTO);
 
-  Thread insert(Thread thread);
+  ThreadDTO insert(Thread thread);
 }

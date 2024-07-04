@@ -16,8 +16,8 @@ public class ThreadServiceImpl implements ThreadService {
   private final ThreadRepository threadRepository;
 
   @Override
-  public Thread insert(Thread thread) {
-    return threadRepository.save(thread);
+  public ThreadDTO insert(Thread thread) {
+    return new ThreadDTO(threadRepository.save(thread));
   }
 
   @Override
