@@ -13,14 +13,13 @@ spring:
       hibernate:
         format_sql: true
         show_sql: true
-logging:
-  level:
-    org.hibernate.sql: debug
-    org.hibernate.type: trace
-
-
   # H2 Console 설정
   h2:
     console: # H2 DB를 웹에서 관리할 수 있는 기능
       enabled: true           # H2 Console 사용 여부
       path: /h2-console       # H2 Console 접속 주소
+
+logging:
+  level:
+    org.hibernate.sql: debug
+    org.hibernate.type: trace
